@@ -1,8 +1,7 @@
-# Crypto Casino - Ahora en México
+# Servicios THB Retail
 
-Buscamos Fomentar el uso de las cryptomonedas
+Plataforma de Productos y Beneficios para empleados
 
 
-By
-- Liz & Ardash
+(c) THB 2020
 
