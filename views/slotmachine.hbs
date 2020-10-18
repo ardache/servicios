@@ -1,0 +1,141 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>jQuery Slot Machine</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=2.0">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="./styles/style.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="./dist/jquery.slotmachine.css" type="text/css" media="screen" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" type="text/css" />
+<!-- Custom styles for this template -->
+  <link href="/stylesheets/new-age.min.css" rel="stylesheet">
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="./dist/slotmachine.js"></script>
+    <script src="./dist/jquery.slotmachine.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/javascript.min.js"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.10/js/all.js" integrity="sha384-slN8GvtUJGnv6ca26v8EzVaR9DC58QEwsIk9q1QXdCU8Yu8ck/tL/5szYlBbqmS+" crossorigin="anonymous"></script>
+  </head>
+
+  <body>
+    <header>
+    <div class="header-line">
+    <div id="randomize">
+      <div class="container">
+        <h1 class="text-center" style="color:aliceblue" >Maquina traga monedas</h1>
+
+        <div class="row">
+          <div class="col-sm-4">
+            <div>
+              <div id="machine1" class="randomizeMachine">
+                <div><img src="img/slot1.png" /></div>
+                <div><img src="img/slot2.png" /></div>
+                <div><img src="img/slot3.png" /></div>
+                <div><img src="img/slot4.png" /></div>
+                <div><img src="img/slot5.png" /></div>
+                <div><img src="img/slot6.png" /></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-sm-4">
+            <div>
+              <div id="machine2" class="randomizeMachine">
+                <div><img src="img/slot1.png" /></div>
+                <div><img src="img/slot2.png" /></div>
+                <div><img src="img/slot3.png" /></div>
+                <div><img src="img/slot4.png" /></div>
+                <div><img src="img/slot5.png" /></div>
+                <div><img src="img/slot6.png" /></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-sm-4">
+            <div>
+              <div id="machine3" class="randomizeMachine">
+                <div><img src="img/slot1.png" /></div>
+                <div><img src="img/slot2.png" /></div>
+                <div><img src="img/slot3.png" /></div>
+                <div><img src="img/slot4.png" /></div>
+                <div><img src="img/slot5.png" /></div>
+                <div><img src="img/slot6.png" /></div>
+              </div>
+            </div>
+          </div>
+        <div class="container" role="group">
+            <h4 style="color:aliceblue">Cada juego vale $ 0.0005 BTC</h4>
+            <h4 style="color:aliceblue">El premio es de $ 1 BTC</h4>
+            </div>
+          <div class="btn-group btn-group-justified" role="group">
+            <button id="randomizeButton" type="button" class="btn btn-danger btn-lg">Jugar</button>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-10 offset-sm-1"></div>
+            <pre><code id="codeBlock2"></code></pre>
+        </div>
+      </div>
+    </div>
+    </div>
+    <script id="codeScript2">
+      let machineResult = []
+const btn = document.querySelector('#randomizeButton');
+const results = {
+  machine1: document.querySelector('#machine1Result'),
+  machine2: document.querySelector('#machine2Result'),
+  machine3: document.querySelector('#machine3Result')
+};
+const el1 = document.querySelector('#machine1');
+const el2 = document.querySelector('#machine2');
+const el3 = document.querySelector('#machine3');
+const machine1 = new SlotMachine(el1, { active: 0 });
+const machine2 = new SlotMachine(el2, { active: 1 });
+const machine3 = new SlotMachine(el3, { active: 2 });
+
+function onComplete(active){
+  //results[this.element.id].innerText = `Index: ${this.active}`;
+  machineResult.push(this.active)
+  if (machineResult.length == 3) {
+    if (machineResult[0]== machineResult[1] && machineResult[0] == machineResult[2]) {
+      //console.log(machineResult + " Ganaste !!!")
+      fetch('/win', {
+        method: 'POST',
+        body: {$inc :{balance:+1}}
+      })
+      .then(res => res.text())
+      //.then(data => console.log(data))
+      .catch(err => console.error(err));
+
+    } else {
+      if(machineResult){
+        fetch('/lost', {
+        method: 'POST',
+        body: {$inc :{balance:-.0005}}
+      })
+      .then(res => res.text())
+      //.then(data => console.log(data))
+      .catch(err => console.error(err));
+      }
+      //console.log(machineResult + " Perdiste")
+      //let data = {$inc :{balance:-.0005}};
+    }
+    machineResult= [];
+  }
+}
+
+btn.addEventListener('click', () => {
+  machine1.shuffle(5, onComplete);
+  setTimeout(() => machine2.shuffle(5, onComplete), 500);
+  setTimeout(() => machine3.shuffle(5, onComplete), 1000);
+});
+    </script>
+  </header>
+  </body>
+</html>

@@ -1,0 +1,34 @@
+		<div class="main-content">
+			<div class="title">
+				Crypto Casino
+			</div>
+			<div class="main">
+                <div class="login-signup-form">
+                    <div class="logo">
+                    <i class="fa fa-btc"></i>
+                    <span>Crypto Casino</span>
+                    </div>
+                    <form action="/save" method="post" id="form">
+                        <h2 class="text-center">Confirmacion de Trasnferencia de Bitcoins</h2>  
+                        <div class="form-group">
+                            Cuenta: <select id="account" name="acount" readonly>
+                                <option value="crypaccount">Crypto cuenta en bitcoins</option>
+                            </select>
+                        </div>     
+                        <div class="form-group">
+                            Beneficiario: <input type="text" name="benef" id="userB" value="{{transfer.username}}" readonly>
+                        </div>
+                        <div class="form-group">
+                            Bitcoins: <input type="text" name="btc" id="bitcoins"  value="{{bitcoins}}" readonly> 
+                        </div>
+                        <br>
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-primary btn-block">Confirmar transferencia</button>
+                        </div>
+                        <div class="clearfix">
+                            <a href="/index" class="pull-right">Cancelar operación</a>
+                        </div>        
+                    </form>
+                </div>
+			</div>
+		</div>
