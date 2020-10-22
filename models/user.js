@@ -7,7 +7,7 @@ const userSchema = new Schema({
   username: {type:String, required: true},
   password: {type:String, required: true},
   email : {type: mongoose.SchemaTypes.Email, required: true},
-  balance : {type: Number, default: 0.25},
+  balance : {type: Number, default: 250},
   level: {type: String, enum: ["Bronce", "Plata", "Oro"], default: "Bronce"},
 }, {
   timestamps: { createdAt: "created_at", updatedAt: "updated_at" }

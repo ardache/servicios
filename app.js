@@ -9,7 +9,7 @@ const MongoStore = require("connect-mongo")(session);
 const PORT = process.env.PORT || 2000
 
 mongoose
-  .connect('mongodb+srv://casino:cryptocasino@cluster0-w3bno.mongodb.net/test?retryWrites=true&w=majority', {useNewUrlParser: true, useUnifiedTopology: true})
+  .connect('mongodb+srv://THB:M3xico@cluster0.vsdus.mongodb.net/Beneficios?retryWrites=true&w=majority', {useNewUrlParser: true, useUnifiedTopology: true})
   .then(x => console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`))
   .catch(err => console.error('Error connecting to mongo', err));
 
@@ -43,6 +43,6 @@ app.use('/', require('./routes/auth-routes'));
 app.use('/', require('./routes/index_routes'));
    
 // Server Started
-app.listen(PORT, () => console.log('yay crypto casino is working!'));
+app.listen(PORT, () => console.log('oh wow! Beneficios is working now!'));
 
 //test

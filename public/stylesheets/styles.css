@@ -1,5 +1,5 @@
 html body {
-  background-color: rgba(51, 101, 138, 1);
+  background-color: rgb(255, 255, 255);
 }
   h1 {
     color: rgba(51, 101, 138, 1);
@@ -166,6 +166,7 @@ html body {
     font-weight: 700;
     color: #333;
     font-size: 18px;
+    text-align: center;
   }
   /* set element styles to fit tablet and higher(desktop) */
   @media screen and (min-width: 600px) {
@@ -240,7 +241,7 @@ html body {
     flex-basis: 300px;
     flex-grow: 10;
     height: 300px;
-    margin: 15px;
+    margin: 30px;
     border-radius: 6px;
     background-color: #ffffff;
     position: relative;

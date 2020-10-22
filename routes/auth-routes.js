@@ -181,6 +181,13 @@ router.get("/tienda", ensureAuthenticated, (req, res, next) => {
     });
 });
 
+router.get("/gmm", ensureAuthenticated, (req, res, next) => {
+  const theUsername = req.session.currentUser.username;
+    User.findOne({ username: theUsername }).then((user) => {
+      res.render("gmm", user);
+    });
+});
+
 
 router.get("/search", ensureAuthenticated, (req, res, next) => {
   const theUsername = req.session.currentUser.username;
