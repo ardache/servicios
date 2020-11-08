@@ -174,6 +174,32 @@ console.log ("estamos en BE", req.body)
   res.redirect("/index");
 });
 
+
+
+router.post("/gmmupdate", (req, res, next) => {
+  const theUsername = req.session.currentUser.username;
+  const beneficiario= req.body.beneficiario;
+console.log ("estamos en BE", req.body)
+  User.findOneAndUpdate({ username: theUsername }, {beneficiario:beneficiario},{new: true})
+  .then(user => {
+      // if (!req.session.currentUser) {
+      //   res.render("/login", {
+      //     errorMessage: "The session have been finish"
+      //   });
+      //   return;
+      // } else 
+      // {
+        console.log(user)
+      // }
+
+  })
+  .catch(error => {
+    next(error);
+  })
+  res.redirect("/index");
+});
+
+
 router.get("/tienda", ensureAuthenticated, (req, res, next) => {
   const theUsername = req.session.currentUser.username;
     User.findOne({ username: theUsername }).then((user) => {

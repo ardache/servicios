@@ -8,7 +8,9 @@ const userSchema = new Schema({
   password: {type:String, required: true},
   email : {type: mongoose.SchemaTypes.Email, required: true},
   balance : {type: Number, default: 250},
-  level: {type: String, enum: ["Bronce", "Plata", "Oro"], default: "Bronce"},
+  position: {type: String, enum: ["Director", "Ejecutivo", "Becario"], default: "No definido"},
+  fullname: {type:String, required: true},
+  beneficiario: {type:String, required: true},
 }, {
   timestamps: { createdAt: "created_at", updatedAt: "updated_at" }
 });
